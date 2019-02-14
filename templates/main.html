@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Eat Weigh Love</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/style.css" />
+    <link rel="icon" href="static/favicon.ico" type="image/x-icon"/>
+    <style>
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+            <div class="jumbotron">
+            <h1>Eat Weigh Love</h1>
+            </div>
+    </div>
+
+    <div class="row ewlbuttons ">
+        <div class="col-xs-12">
+            <div class="btn-group">
+                <button id="btnEat" tabindex="1">
+                    <img src="static/sundae.png" />
+                </button>
+                <button id="btnWeigh" tabindex="2">
+                    <img src="static/scale.png" />
+                </button>
+                <button id="btnLove" tabindex="3">
+                    <img src="static/heart.png" />
+                </button>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="dialog">
+    <div class="dialog-box">
+
+    </div>
+</div>
+
+<script>
+$(function(w){
+
+let btnEatClick = function(e){
+    alert("btnEatClick");
+};
+
+let btnWeighClick = function(e){
+    alert("btnWeighClick");
+};
+
+let btnLoveClick = function(e){
+    alert("btnLoveClick");
+};
+
+$("#btnEat").on("click", btnEatClick);
+$("#btnWeigh").on("click", btnWeighClick);
+$("#btnLove").on("click", btnLoveClick);
+
+}(window));
+
+</script>
+</body>
+</html>
