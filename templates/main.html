@@ -197,6 +197,67 @@
     </div>
 </div>
 
+<div id="modalWeightHistory" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Weight History</span>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <table class="table table-striped">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Weight</th>
+                                </tr>
+                                <tr>
+                                    <td>Feb 10, 2019</td>
+                                    <td>177.4 lbs</td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 11, 2019</td>
+                                    <td>177.0 lbs</td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 12, 2019</td>
+                                    <td>177.6 lbs</td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 13, 2019</td>
+                                    <td>177.0 lbs</td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 14, 2019</td>
+                                    <td>176.8 lbs</td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 15, 2019</td>
+                                    <td>176.2 lbs</td>
+                                </tr>
+                                <tr>
+                                    <td>Feb 16, 2019</td>
+                                    <td>175.6 lbs</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <h4>(TODO: Add weight history chart here)</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
 $(function(w){
 
@@ -212,9 +273,14 @@ const btnLoveClick = function(e){
     $("#modalLove").modal();
 };
 
+const btnWeightHistoryClick = function(e){
+    $("#modalWeightHistory").modal();
+};
+
 $("#btnEat").on("click", btnEatClick);
 $("#btnWeigh").on("click", btnWeighClick);
 $("#btnLove").on("click", btnLoveClick);
+$("#btnWeightHistory").on("click", btnWeightHistoryClick);
 
 }(window));
 
