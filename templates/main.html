@@ -42,17 +42,17 @@
     </div>
 </div>
 
-<div id="modalEat" class="modal fade">
+<div id="modalLove" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="modal-title">Eat</span>
+                <span class="modal-title">Love</span>
             </div>
             <div class="modal-body">
-                food stub
+                love stub
             </div>
             <div class="modal-footer">
-                food footer stub
+                love footer stub
             </div>
         </div>
     </div>
@@ -74,17 +74,64 @@
     </div>
 </div>
 
-<div id="modalLove" class="modal fade">
+<div id="modalEat" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <span class="modal-title">Love</span>
+                <span class="modal-title">Eat</span>
             </div>
             <div class="modal-body">
-                love stub
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-1">
+                            <b>Yummies</b>
+                        </div>
+                        <div class="col-xs-1">
+                            <b>Portions</b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <select size="4" id="selectFood" class="form-control">
+                                <option value="Milk">Milk</option>
+                                <option value="Oatmeal">Oatmeal</option>
+                                <option value="Water">Water</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-2">
+                            <input id="numPortions" class="input" />
+                        </div>
+                        <div class="col-xs-1">
+                            <button id="btnAddServing" class="btn">Add Serving</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <b>Something New</b>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input id="txtNewFood" class="input form-control" value="txtNewFood" />
+                        </div>
+                        <div class="col-xs-2">
+                            <button class="btn" id="btnAddNewFood">Add New Food</button>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-1">
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
-                food footer stub
+                <button class="btn btn-primary">Close</button>
             </div>
         </div>
     </div>
