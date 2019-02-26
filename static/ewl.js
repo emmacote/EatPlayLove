@@ -1,18 +1,18 @@
 $(function(w){
 
-const btnEatClick = function(e){
+const btnEatClick = (e) => {
     $("#modalEat").modal();
 };
 
-const btnWeighClick = function(e){
+const btnWeighClick = (e) => {
     $("#modalWeigh").modal();
 };
 
-const btnLoveClick = function(e){
+const btnLoveClick = (e) => {
     $("#modalLove").modal();
 };
 
-const btnWeightHistoryClick = function(e){
+const btnWeightHistoryClick = (e) => {
     $("#modalWeightHistory").modal();
 };
 
