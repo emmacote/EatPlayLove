@@ -1,6 +1,6 @@
 __author__ = 'Emma Cote'
 from flask import Flask, render_template, jsonify
-
+from model import Food, Session
 
 app = Flask(__name__)
 app.debug = True
@@ -12,8 +12,15 @@ def index():
 
 @app.route("/food", methods=["GET"])
 def food():
-    stub_result = dict(foods="milk oatmeal water pickles".split())
-    return jsonify(stub_result)
+    sess = Session()
+    food_obs = sess.query(Food).all()
+    foods = []
+    for food in food_obs:
+        foods.append(food.name)
+
+
+    res = dict(foods=foods)
+    return jsonify(res)
 
 
 if __name__ == '__main__':
