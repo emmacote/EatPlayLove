@@ -23,7 +23,7 @@ const btnEatClick = (e) => {
     };
 
     const failure = function(res) {
-        alert("eat failure");
+        alert("I'm sorry. I couldn't get a list of food from home base.");
     };
     
     promise.then(success, failure);
