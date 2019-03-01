@@ -10,7 +10,7 @@ def index():
     return render_template("main.html")
 
 
-@app.route("/food", methods=["GET"])
+@app.route("/food", methods=["GET", "POST"])
 def food():
     sess = Session()
     food_obs = sess.query(Food).all()
