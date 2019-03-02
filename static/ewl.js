@@ -16,8 +16,8 @@ const btnEatClick = (e) => {
         $("#selectFood").empty();
 
         for(i=0;i<foodList.length;i++){
-            let optionFood = $("<option>" + foodList[i] + "</option>");
-            optionFood.val(foodList[i]);
+            let optionFood = $("<option>" + foodList[i].name + "</option>");
+            optionFood.val(foodList[i].id);
             $("#selectFood").append(optionFood);
         }
     };
@@ -50,8 +50,8 @@ const btnAddFoodClick = (e) => {
         $("#selectFood").empty();
 
         for(i=0;i<foodList.length;i++){
-            let optionFood = $("<option>" + foodList[i] + "</option>");
-            optionFood.val(foodList[i]);
+            let optionFood = $("<option>" + foodList[i].name + "</option>");
+            optionFood.val(foodList[i].id);
             $("#selectFood").append(optionFood);
         }
 

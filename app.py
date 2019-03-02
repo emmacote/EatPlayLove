@@ -27,7 +27,7 @@ def food():
         msg = "Retrieved list of all foods for this user."
 
 
-    food_list = [food.name for food in sess.query(Food).all()]
+    food_list = [dict(id=food.id, name=food.name) for food in sess.query(Food).all()]
     return_data = dict(msg=msg, foods=food_list)
     return jsonify(return_data)
 
