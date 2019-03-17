@@ -75,11 +75,46 @@ const btnWeightHistoryClick = (e) => {
     $("#modalWeightHistory").modal();
 };
 
+const btnAddServingClick = (e) => {
+    const foodID = $("#selectFood").val();
+    const numPortions = $("#numPortions").val();
+    let jsonData = {
+        "food_id": foodID,
+        "portions": numPortions
+    };
+
+    jsonData = JSON.stringify(jsonData);
+
+    const req = {
+        url: "/serving",
+        method: "post",
+        headers: {
+            "Content-type": "application/json"
+        },
+        data: jsonData
+    };
+
+    const success = function(e){
+        console.log("serving addition success...");
+        console.log(e);
+    };
+
+    const failure = function(e){
+        console.log("serving addition failed...");
+        console.log(e);
+    };
+
+    const promise = $.ajax(req);
+    promise.then(success, failure);
+}
+
 $("#btnEat").on("click", btnEatClick);
 $("#btnAddNewFood").on("click", btnAddFoodClick);
 $("#btnWeigh").on("click", btnWeighClick);
 $("#btnLove").on("click", btnLoveClick);
 $("#btnWeightHistory").on("click", btnWeightHistoryClick);
+
+$("#btnAddServing").on("click", btnAddServingClick);
 
 
 }(window));

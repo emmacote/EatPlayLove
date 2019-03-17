@@ -1,6 +1,6 @@
 __author__ = 'Emma Cote'
 from flask import Flask, render_template, jsonify, request, abort
-from model import Food, Session
+from model import Food, Session, Serving
 
 app = Flask(__name__)
 app.debug = True
@@ -31,6 +31,23 @@ def food():
     return_data = dict(msg=msg, foods=food_list)
     return jsonify(return_data)
 
+
+@app.route("/serving", methods=["POST"])
+def add_serving():
+    from datetime import datetime
+
+    json_data = request.json
+    food_id = json_data.get("food_id")
+    portions = json_data.get("portions")
+
+    sess = Session()
+    food = sess.query(Food).filter_by(id=food_id).one()
+    serving = Serving(date=datetime.now(), qty=portions, food=food)
+    sess.add(serving)
+    sess.commit()
+
+    msg = "{} serving of {} recorded.".format(portions, food.name)
+    return jsonify(dict(msg=msg))
 
 
 if __name__ == '__main__':
