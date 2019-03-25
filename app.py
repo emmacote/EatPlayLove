@@ -1,6 +1,6 @@
 __author__ = 'Emma Cote'
 from flask import Flask, render_template, jsonify, request, abort
-from sqlalchemy import Table, Column, Integer, String, create_engine, DateTime, ForeignKey
+from sqlalchemy import Table, Column, Integer, String, Float, create_engine, DateTime, ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 
@@ -23,6 +23,12 @@ class Serving(Base):
     food_id = Column(ForeignKey("foods.id"))
     qty = Column(Integer)
     food = relationship("Food")
+
+
+class WeighIn(Base):
+    __tablename__ = "weighins"
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    weight = Column(Float)
 
 
 Session = sessionmaker(bind=eng)
@@ -75,6 +81,25 @@ def add_serving():
 
     msg = "{} serving of {} recorded.".format(portions, food.name)
     return jsonify(dict(msg=msg))
+
+
+@app.route("/weight", methods=["POST"])
+def add_weight():
+    json_data = request.json
+    new_weight = json_data.get("new_weight", "0")
+    new_weight = float(new_weight)
+
+    if new_weight:
+        sess = Session()
+        weigh_in = WeighIn(weight=new_weight)
+        sess.add(weigh_in)
+        sess.commit()
+        stub_res = {"stub": "stub result... adding weight: {}".format(new_weight)}
+        return jsonify(stub_res)
+    else:
+        abort(400)
+
+
 
 
 if __name__ == '__main__':

@@ -106,7 +106,37 @@ const btnAddServingClick = (e) => {
 
     const promise = $.ajax(req);
     promise.then(success, failure);
-}
+};
+
+const btnAddWeightClick = (e) => {
+
+    const success = function(res){
+        console.log("add weight success");
+        console.log(res);
+    };
+
+    const failure = function(res){
+        console.log("add weight failure");
+        console.log(res);
+    };
+
+    let jsonData = {
+        "new_weight": $("#numWeightEntry").val()
+    };
+
+    jsonData = JSON.stringify(jsonData);
+    const req = {
+        url: "/weight",
+        method: "post",
+        headers: {
+            "Content-type": "application/json"
+        },
+        data: jsonData
+    };
+
+
+    $.ajax(req).then(success, failure);
+};
 
 $("#btnEat").on("click", btnEatClick);
 $("#btnAddNewFood").on("click", btnAddFoodClick);
@@ -115,6 +145,6 @@ $("#btnLove").on("click", btnLoveClick);
 $("#btnWeightHistory").on("click", btnWeightHistoryClick);
 
 $("#btnAddServing").on("click", btnAddServingClick);
-
+$("#btnAddWeight").on("click", btnAddWeightClick);
 
 }(window));
