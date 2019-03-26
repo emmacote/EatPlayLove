@@ -28,6 +28,7 @@ class Serving(Base):
 class WeighIn(Base):
     __tablename__ = "weighins"
     id = Column(Integer, primary_key=True, autoincrement=True)
+    date = Column(DateTime)
     weight = Column(Float)
 
 
@@ -85,16 +86,18 @@ def add_serving():
 
 @app.route("/weight", methods=["POST"])
 def add_weight():
+    from datetime import datetime
     json_data = request.json
     new_weight = json_data.get("new_weight", "0")
     new_weight = float(new_weight)
 
     if new_weight:
         sess = Session()
-        weigh_in = WeighIn(weight=new_weight)
+        weighin_time = datetime.now()
+        weigh_in = WeighIn(weight=new_weight, date=weighin_time)
         sess.add(weigh_in)
         sess.commit()
-        stub_res = {"stub": "stub result... adding weight: {}".format(new_weight)}
+        stub_res = {"msg": "Adding weight: {} date: {}".format(new_weight, weighin_time)}
         return jsonify(stub_res)
     else:
         abort(400)
